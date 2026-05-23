@@ -41,8 +41,13 @@ sourceSets {
 }
 
 val connectKotlinVersion = "0.7.2"
-val protobufJavaVersion = "4.28.3"
+// Generated Java protos pin themselves to the version that produced
+// them (4.35.x). RuntimeVersion.validateProtobufGencodeVersion at
+// startup hard-fails if the runtime is older, so this stays in
+// lockstep with the buf.build/protocolbuffers/java plugin version.
+val protobufJavaVersion = "4.35.0"
 val coroutinesVersion = "1.9.0"
+val protovalidateVersion = "0.7.0"
 
 dependencies {
     api("com.google.protobuf:protobuf-java:$protobufJavaVersion")
@@ -50,6 +55,10 @@ dependencies {
     api("com.connectrpc:connect-kotlin-okhttp:$connectKotlinVersion")
     api("com.connectrpc:connect-kotlin-google-java-ext:$connectKotlinVersion")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    // Generated protos reference build.buf.validate.* types via
+    // protovalidate field options; needed on the classpath for
+    // compilation even though we don't run validators client-side.
+    api("build.buf:protovalidate:$protovalidateVersion")
 
     // OkHttp transport pulled in by connect-kotlin-okhttp; pin
     // explicitly so consumers don't get an older version via
