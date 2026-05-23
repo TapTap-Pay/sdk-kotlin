@@ -40,7 +40,7 @@ sourceSets {
     }
 }
 
-val connectKotlinVersion = "0.7.5"
+val connectKotlinVersion = "0.7.2"
 val protobufJavaVersion = "4.28.3"
 val coroutinesVersion = "1.9.0"
 
