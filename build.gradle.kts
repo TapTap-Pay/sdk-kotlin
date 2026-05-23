@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "rs.taptap"
-version = "0.0.0"
+version = "0.0.45"
 
 repositories {
     mavenCentral()
