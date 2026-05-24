@@ -2586,6 +2586,30 @@ java.lang.String defaultValue);
      */
     com.google.protobuf.ByteString
         getCancelUrlBytes();
+
+    /**
+     * <pre>
+     * Hosted-checkout URL the integrator should redirect the customer to.
+     * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+     * (based on MODE) so SDK clients never hardcode the host or path.
+     * </pre>
+     *
+     * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+     * @return The checkoutUrl.
+     */
+    java.lang.String getCheckoutUrl();
+    /**
+     * <pre>
+     * Hosted-checkout URL the integrator should redirect the customer to.
+     * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+     * (based on MODE) so SDK clients never hardcode the host or path.
+     * </pre>
+     *
+     * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+     * @return The bytes for checkoutUrl.
+     */
+    com.google.protobuf.ByteString
+        getCheckoutUrlBytes();
   }
   /**
    * <pre>
@@ -2620,6 +2644,7 @@ java.lang.String defaultValue);
       description_ = "";
       successUrl_ = "";
       cancelUrl_ = "";
+      checkoutUrl_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -3089,6 +3114,57 @@ java.lang.String defaultValue) {
       }
     }
 
+    public static final int CHECKOUT_URL_FIELD_NUMBER = 12;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object checkoutUrl_ = "";
+    /**
+     * <pre>
+     * Hosted-checkout URL the integrator should redirect the customer to.
+     * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+     * (based on MODE) so SDK clients never hardcode the host or path.
+     * </pre>
+     *
+     * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+     * @return The checkoutUrl.
+     */
+    @java.lang.Override
+    public java.lang.String getCheckoutUrl() {
+      java.lang.Object ref = checkoutUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        checkoutUrl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Hosted-checkout URL the integrator should redirect the customer to.
+     * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+     * (based on MODE) so SDK clients never hardcode the host or path.
+     * </pre>
+     *
+     * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+     * @return The bytes for checkoutUrl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCheckoutUrlBytes() {
+      java.lang.Object ref = checkoutUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        checkoutUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3139,6 +3215,9 @@ java.lang.String defaultValue) {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(cancelUrl_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 11, cancelUrl_);
       }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(checkoutUrl_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 12, checkoutUrl_);
+      }
       getUnknownFields().writeTo(output);
     }
     private int computeSerializedSize_0() {
@@ -3187,6 +3266,9 @@ java.lang.String defaultValue) {
       }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(cancelUrl_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(11, cancelUrl_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(checkoutUrl_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(12, checkoutUrl_);
       }
       return size;
     }
@@ -3245,6 +3327,8 @@ java.lang.String defaultValue) {
           .equals(other.getSuccessUrl())) return false;
       if (!getCancelUrl()
           .equals(other.getCancelUrl())) return false;
+      if (!getCheckoutUrl()
+          .equals(other.getCheckoutUrl())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3288,6 +3372,8 @@ java.lang.String defaultValue) {
       hash = (53 * hash) + getSuccessUrl().hashCode();
       hash = (37 * hash) + CANCEL_URL_FIELD_NUMBER;
       hash = (53 * hash) + getCancelUrl().hashCode();
+      hash = (37 * hash) + CHECKOUT_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getCheckoutUrl().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3482,6 +3568,7 @@ java.lang.String defaultValue) {
         }
         successUrl_ = "";
         cancelUrl_ = "";
+        checkoutUrl_ = "";
         return this;
       }
 
@@ -3562,6 +3649,9 @@ java.lang.String defaultValue) {
         if (((from_bitField0_ & 0x00000400) != 0)) {
           result.cancelUrl_ = cancelUrl_;
         }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.checkoutUrl_ = checkoutUrl_;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -3618,6 +3708,11 @@ java.lang.String defaultValue) {
         if (!other.getCancelUrl().isEmpty()) {
           cancelUrl_ = other.cancelUrl_;
           bitField0_ |= 0x00000400;
+          onChanged();
+        }
+        if (!other.getCheckoutUrl().isEmpty()) {
+          checkoutUrl_ = other.checkoutUrl_;
+          bitField0_ |= 0x00000800;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -3713,6 +3808,11 @@ java.lang.String defaultValue) {
                 bitField0_ |= 0x00000400;
                 break;
               } // case 90
+              case 98: {
+                checkoutUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4843,6 +4943,108 @@ java.lang.String defaultValue) {
         checkByteStringIsUtf8(value);
         cancelUrl_ = value;
         bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object checkoutUrl_ = "";
+      /**
+       * <pre>
+       * Hosted-checkout URL the integrator should redirect the customer to.
+       * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+       * (based on MODE) so SDK clients never hardcode the host or path.
+       * </pre>
+       *
+       * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+       * @return The checkoutUrl.
+       */
+      public java.lang.String getCheckoutUrl() {
+        java.lang.Object ref = checkoutUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          checkoutUrl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Hosted-checkout URL the integrator should redirect the customer to.
+       * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+       * (based on MODE) so SDK clients never hardcode the host or path.
+       * </pre>
+       *
+       * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+       * @return The bytes for checkoutUrl.
+       */
+      public com.google.protobuf.ByteString
+          getCheckoutUrlBytes() {
+        java.lang.Object ref = checkoutUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          checkoutUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Hosted-checkout URL the integrator should redirect the customer to.
+       * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+       * (based on MODE) so SDK clients never hardcode the host or path.
+       * </pre>
+       *
+       * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+       * @param value The checkoutUrl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCheckoutUrl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkoutUrl_ = value;
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Hosted-checkout URL the integrator should redirect the customer to.
+       * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+       * (based on MODE) so SDK clients never hardcode the host or path.
+       * </pre>
+       *
+       * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCheckoutUrl() {
+        checkoutUrl_ = getDefaultInstance().getCheckoutUrl();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Hosted-checkout URL the integrator should redirect the customer to.
+       * Built server-side from the platform's SANDBOX_URL / PROD_URL config
+       * (based on MODE) so SDK clients never hardcode the host or path.
+       * </pre>
+       *
+       * <code>string checkout_url = 12 [json_name = "checkoutUrl"];</code>
+       * @param value The bytes for checkoutUrl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCheckoutUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        checkoutUrl_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -20923,7 +21125,7 @@ java.lang.String defaultValue) {
       "ast4\030\003 \001(\tH\001R\tcardLast4\210\001\001\022 \n\tbank_name\030" +
       "\004 \001(\tH\002R\010bankName\210\001\001\022 \n\twallet_id\030\005 \001(\tH" +
       "\003R\010walletId\210\001\001B\r\n\013_card_brandB\r\n\013_card_l" +
-      "ast4B\014\n\n_bank_nameB\014\n\n_wallet_id\"\255\004\n\007Pay" +
+      "ast4B\014\n\n_bank_nameB\014\n\n_wallet_id\"\320\004\n\007Pay" +
       "ment\022\016\n\002id\030\001 \001(\tR\002id\022<\n\006status\030\002 \001(\0162$.p" +
       "rogrammatic.types.v1.PaymentStatusR\006stat" +
       "us\022(\n\006amount\030\003 \001(\0132\020.common.v1.MoneyR\006am" +
@@ -20936,135 +21138,136 @@ java.lang.String defaultValue) {
       "reatedAt\0229\n\nupdated_at\030\t \001(\0132\032.google.pr" +
       "otobuf.TimestampR\tupdatedAt\022\037\n\013success_u" +
       "rl\030\n \001(\tR\nsuccessUrl\022\035\n\ncancel_url\030\013 \001(\t" +
-      "R\tcancelUrl\032;\n\rMetadataEntry\022\020\n\003key\030\001 \001(" +
-      "\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"\230\n\n\013Tra" +
-      "nsaction\022\016\n\002id\030\001 \001(\tR\002id\022:\n\004kind\030\002 \001(\0162&" +
-      ".programmatic.types.v1.TransactionKindR\004" +
-      "kind\022@\n\006status\030\003 \001(\0162(.programmatic.type" +
-      "s.v1.TransactionStatusR\006status\022\035\n\npaymen" +
-      "t_id\030\004 \001(\tR\tpaymentId\022(\n\006amount\030\005 \001(\0132\020." +
-      "common.v1.MoneyR\006amount\022\'\n\003fee\030\006 \001(\0132\020.c" +
-      "ommon.v1.MoneyH\000R\003fee\210\001\001\0224\n\nnet_amount\030\007" +
-      " \001(\0132\020.common.v1.MoneyH\001R\tnetAmount\210\001\001\0229" +
-      "\n\ncreated_at\030\010 \001(\0132\032.google.protobuf.Tim" +
-      "estampR\tcreatedAt\0229\n\nupdated_at\030\t \001(\0132\032." +
-      "google.protobuf.TimestampR\tupdatedAt\022@\n\013" +
-      "executed_at\030\n \001(\0132\032.google.protobuf.Time" +
-      "stampH\002R\nexecutedAt\210\001\001\0222\n\022external_refer" +
-      "ence\030\013 \001(\tH\003R\021externalReference\210\001\001\022&\n\014fa" +
-      "ilure_code\030\014 \001(\tH\004R\013failureCode\210\001\001\022,\n\017fa" +
-      "ilure_message\030\r \001(\tH\005R\016failureMessage\210\001\001" +
-      "\022P\n\016payment_method\030\016 \001(\0132$.programmatic." +
-      "types.v1.PaymentMethodH\006R\rpaymentMethod\210" +
-      "\001\001\0227\n\025parent_transaction_id\030\017 \001(\tH\007R\023par" +
-      "entTransactionId\210\001\001\022C\n\033destination_accou" +
-      "nt_summary\030\020 \001(\tH\010R\031destinationAccountSu" +
-      "mmary\210\001\001\022-\n\020source_wallet_id\030\021 \001(\tH\tR\016so" +
-      "urceWalletId\210\001\001\022-\n\020target_wallet_id\030\022 \001(" +
-      "\tH\nR\016targetWalletId\210\001\001\022L\n\010metadata\030\023 \003(\013" +
-      "20.programmatic.types.v1.Transaction.Met" +
-      "adataEntryR\010metadata\032;\n\rMetadataEntry\022\020\n" +
-      "\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028" +
-      "\001B\006\n\004_feeB\r\n\013_net_amountB\016\n\014_executed_at" +
-      "B\025\n\023_external_referenceB\017\n\r_failure_code" +
-      "B\022\n\020_failure_messageB\021\n\017_payment_methodB" +
-      "\030\n\026_parent_transaction_idB\036\n\034_destinatio" +
-      "n_account_summaryB\023\n\021_source_wallet_idB\023" +
-      "\n\021_target_wallet_id\"\361\001\n\006Wallet\022\016\n\002id\030\001 \001" +
-      "(\tR\002id\022\032\n\010currency\030\002 \001(\tR\010currency\022#\n\rba" +
-      "lance_minor\030\003 \001(\003R\014balanceMinor\022\027\n\004name\030" +
-      "\004 \001(\tH\000R\004name\210\001\001\0229\n\ncreated_at\030\005 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\tcreatedAt\0229\n\nu" +
-      "pdated_at\030\006 \001(\0132\032.google.protobuf.Timest" +
-      "ampR\tupdatedAtB\007\n\005_name\"\340\004\n\013PaymentLink\022" +
-      "\016\n\002id\030\001 \001(\tR\002id\022\024\n\005title\030\002 \001(\tR\005title\022 \n" +
-      "\013description\030\003 \001(\tR\013description\022(\n\006amoun" +
-      "t\030\004 \001(\0132\020.common.v1.MoneyR\006amount\022.\n\023all" +
-      "ow_custom_amount\030\005 \001(\010R\021allowCustomAmoun" +
-      "t\022#\n\rrequire_email\030\006 \001(\010R\014requireEmail\022#" +
-      "\n\rrequire_phone\030\007 \001(\010R\014requirePhone\022!\n\014r" +
-      "equire_name\030\010 \001(\010R\013requireName\022+\n\021requir" +
-      "e_reference\030\t \001(\010R\020requireReference\022(\n\020t" +
-      "arget_wallet_id\030\n \001(\tR\016targetWalletId\022\026\n" +
-      "\006status\030\013 \001(\tR\006status\022\035\n\nshort_code\030\014 \001(" +
-      "\tR\tshortCode\0229\n\ncreated_at\030\r \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\tcreatedAt\0229\n\nupdat" +
-      "ed_at\030\016 \001(\0132\032.google.protobuf.TimestampR" +
-      "\tupdatedAt\022\037\n\013success_url\030\017 \001(\tR\nsuccess" +
-      "Url\022\035\n\ncancel_url\030\020 \001(\tR\tcancelUrl\"\275\001\n\013I" +
-      "nvoiceItem\022\016\n\002id\030\001 \001(\tR\002id\022 \n\013descriptio" +
-      "n\030\002 \001(\tR\013description\022\032\n\010quantity\030\003 \001(\003R\010" +
-      "quantity\022/\n\nunit_price\030\004 \001(\0132\020.common.v1" +
-      ".MoneyR\tunitPrice\022/\n\nline_total\030\005 \001(\0132\020." +
-      "common.v1.MoneyR\tlineTotal\"l\n\020InvoiceRec" +
-      "ipient\022\022\n\004name\030\001 \001(\tR\004name\022\024\n\005email\030\002 \001(" +
-      "\tR\005email\022\024\n\005phone\030\003 \001(\tR\005phone\022\030\n\007addres" +
-      "s\030\004 \001(\tR\007address\"\312\006\n\007Invoice\022\016\n\002id\030\001 \001(\t" +
-      "R\002id\022%\n\016invoice_number\030\002 \001(\tR\rinvoiceNum" +
-      "ber\022<\n\006status\030\003 \001(\0162$.programmatic.types" +
-      ".v1.InvoiceStatusR\006status\022,\n\010subtotal\030\004 " +
-      "\001(\0132\020.common.v1.MoneyR\010subtotal\022-\n\ttax_t" +
-      "otal\030\005 \001(\0132\020.common.v1.MoneyR\010taxTotal\022&" +
-      "\n\005total\030\006 \001(\0132\020.common.v1.MoneyR\005total\0221" +
-      "\n\013amount_paid\030\007 \001(\0132\020.common.v1.MoneyR\na" +
-      "mountPaid\022E\n\trecipient\030\010 \001(\0132\'.programma" +
-      "tic.types.v1.InvoiceRecipientR\trecipient" +
-      "\0227\n\tissued_at\030\t \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\010issuedAt\0221\n\006due_at\030\n \001(\0132\032.goog" +
-      "le.protobuf.TimestampR\005dueAt\0228\n\007sent_at\030" +
-      "\013 \001(\0132\032.google.protobuf.TimestampH\000R\006sen" +
-      "tAt\210\001\001\0228\n\007paid_at\030\014 \001(\0132\032.google.protobu" +
-      "f.TimestampH\001R\006paidAt\210\001\001\022\024\n\005notes\030\r \001(\tR" +
-      "\005notes\022\024\n\005terms\030\016 \001(\tR\005terms\022\"\n\npayment_" +
-      "id\030\017 \001(\tH\002R\tpaymentId\210\001\001\0229\n\ncreated_at\030\020" +
-      " \001(\0132\032.google.protobuf.TimestampR\tcreate" +
-      "dAt\0229\n\nupdated_at\030\021 \001(\0132\032.google.protobu" +
-      "f.TimestampR\tupdatedAtB\n\n\010_sent_atB\n\n\010_p" +
-      "aid_atB\r\n\013_payment_id\"\255\002\n\023WebhookSubscri" +
-      "ption\022\016\n\002id\030\001 \001(\tR\002id\022\020\n\003url\030\002 \001(\tR\003url\022" +
-      "D\n\013event_types\030\003 \003(\0162#.programmatic.type" +
-      "s.v1.WebhookEventR\neventTypes\022\026\n\006active\030" +
-      "\004 \001(\010R\006active\022 \n\013description\030\005 \001(\tR\013desc" +
-      "ription\0229\n\ncreated_at\030\006 \001(\0132\032.google.pro" +
+      "R\tcancelUrl\022!\n\014checkout_url\030\014 \001(\tR\013check" +
+      "outUrl\032;\n\rMetadataEntry\022\020\n\003key\030\001 \001(\tR\003ke" +
+      "y\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"\230\n\n\013Transact" +
+      "ion\022\016\n\002id\030\001 \001(\tR\002id\022:\n\004kind\030\002 \001(\0162&.prog" +
+      "rammatic.types.v1.TransactionKindR\004kind\022" +
+      "@\n\006status\030\003 \001(\0162(.programmatic.types.v1." +
+      "TransactionStatusR\006status\022\035\n\npayment_id\030" +
+      "\004 \001(\tR\tpaymentId\022(\n\006amount\030\005 \001(\0132\020.commo" +
+      "n.v1.MoneyR\006amount\022\'\n\003fee\030\006 \001(\0132\020.common" +
+      ".v1.MoneyH\000R\003fee\210\001\001\0224\n\nnet_amount\030\007 \001(\0132" +
+      "\020.common.v1.MoneyH\001R\tnetAmount\210\001\001\0229\n\ncre" +
+      "ated_at\030\010 \001(\0132\032.google.protobuf.Timestam" +
+      "pR\tcreatedAt\0229\n\nupdated_at\030\t \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\tupdatedAt\022@\n\013execu" +
+      "ted_at\030\n \001(\0132\032.google.protobuf.Timestamp" +
+      "H\002R\nexecutedAt\210\001\001\0222\n\022external_reference\030" +
+      "\013 \001(\tH\003R\021externalReference\210\001\001\022&\n\014failure" +
+      "_code\030\014 \001(\tH\004R\013failureCode\210\001\001\022,\n\017failure" +
+      "_message\030\r \001(\tH\005R\016failureMessage\210\001\001\022P\n\016p" +
+      "ayment_method\030\016 \001(\0132$.programmatic.types" +
+      ".v1.PaymentMethodH\006R\rpaymentMethod\210\001\001\0227\n" +
+      "\025parent_transaction_id\030\017 \001(\tH\007R\023parentTr" +
+      "ansactionId\210\001\001\022C\n\033destination_account_su" +
+      "mmary\030\020 \001(\tH\010R\031destinationAccountSummary" +
+      "\210\001\001\022-\n\020source_wallet_id\030\021 \001(\tH\tR\016sourceW" +
+      "alletId\210\001\001\022-\n\020target_wallet_id\030\022 \001(\tH\nR\016" +
+      "targetWalletId\210\001\001\022L\n\010metadata\030\023 \003(\01320.pr" +
+      "ogrammatic.types.v1.Transaction.Metadata" +
+      "EntryR\010metadata\032;\n\rMetadataEntry\022\020\n\003key\030" +
+      "\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001B\006\n\004" +
+      "_feeB\r\n\013_net_amountB\016\n\014_executed_atB\025\n\023_" +
+      "external_referenceB\017\n\r_failure_codeB\022\n\020_" +
+      "failure_messageB\021\n\017_payment_methodB\030\n\026_p" +
+      "arent_transaction_idB\036\n\034_destination_acc" +
+      "ount_summaryB\023\n\021_source_wallet_idB\023\n\021_ta" +
+      "rget_wallet_id\"\361\001\n\006Wallet\022\016\n\002id\030\001 \001(\tR\002i" +
+      "d\022\032\n\010currency\030\002 \001(\tR\010currency\022#\n\rbalance" +
+      "_minor\030\003 \001(\003R\014balanceMinor\022\027\n\004name\030\004 \001(\t" +
+      "H\000R\004name\210\001\001\0229\n\ncreated_at\030\005 \001(\0132\032.google" +
+      ".protobuf.TimestampR\tcreatedAt\0229\n\nupdate" +
+      "d_at\030\006 \001(\0132\032.google.protobuf.TimestampR\t" +
+      "updatedAtB\007\n\005_name\"\340\004\n\013PaymentLink\022\016\n\002id" +
+      "\030\001 \001(\tR\002id\022\024\n\005title\030\002 \001(\tR\005title\022 \n\013desc" +
+      "ription\030\003 \001(\tR\013description\022(\n\006amount\030\004 \001" +
+      "(\0132\020.common.v1.MoneyR\006amount\022.\n\023allow_cu" +
+      "stom_amount\030\005 \001(\010R\021allowCustomAmount\022#\n\r" +
+      "require_email\030\006 \001(\010R\014requireEmail\022#\n\rreq" +
+      "uire_phone\030\007 \001(\010R\014requirePhone\022!\n\014requir" +
+      "e_name\030\010 \001(\010R\013requireName\022+\n\021require_ref" +
+      "erence\030\t \001(\010R\020requireReference\022(\n\020target" +
+      "_wallet_id\030\n \001(\tR\016targetWalletId\022\026\n\006stat" +
+      "us\030\013 \001(\tR\006status\022\035\n\nshort_code\030\014 \001(\tR\tsh" +
+      "ortCode\0229\n\ncreated_at\030\r \001(\0132\032.google.pro" +
       "tobuf.TimestampR\tcreatedAt\0229\n\nupdated_at" +
-      "\030\007 \001(\0132\032.google.protobuf.TimestampR\tupda" +
-      "tedAt*\346\001\n\rPaymentStatus\022\036\n\032PAYMENT_STATU" +
-      "S_UNSPECIFIED\020\000\022\032\n\026PAYMENT_STATUS_PENDIN" +
-      "G\020\001\022\034\n\030PAYMENT_STATUS_SUCCEEDED\020\002\022\031\n\025PAY" +
-      "MENT_STATUS_FAILED\020\003\022\033\n\027PAYMENT_STATUS_R" +
-      "EFUNDED\020\004\022%\n!PAYMENT_STATUS_PARTIALLY_RE" +
-      "FUNDED\020\005\022\034\n\030PAYMENT_STATUS_CANCELLED\020\006*\302" +
-      "\001\n\017TransactionKind\022 \n\034TRANSACTION_KIND_U" +
-      "NSPECIFIED\020\000\022\032\n\026TRANSACTION_KIND_PAYIN\020\001" +
-      "\022\033\n\027TRANSACTION_KIND_PAYOUT\020\002\022\035\n\031TRANSAC" +
-      "TION_KIND_TRANSFER\020\003\022\033\n\027TRANSACTION_KIND" +
-      "_REFUND\020\004\022\030\n\024TRANSACTION_KIND_FEE\020\005*\332\001\n\021" +
-      "TransactionStatus\022\"\n\036TRANSACTION_STATUS_" +
-      "UNSPECIFIED\020\000\022\036\n\032TRANSACTION_STATUS_CREA" +
-      "TED\020\001\022\036\n\032TRANSACTION_STATUS_PENDING\020\002\022 \n" +
-      "\034TRANSACTION_STATUS_SUCCEEDED\020\003\022\035\n\031TRANS" +
-      "ACTION_STATUS_FAILED\020\004\022 \n\034TRANSACTION_ST" +
-      "ATUS_CANCELLED\020\005*\177\n\013PayInMethod\022\035\n\031PAY_I" +
-      "N_METHOD_UNSPECIFIED\020\000\022\026\n\022PAY_IN_METHOD_" +
-      "CARD\020\001\022\037\n\033PAY_IN_METHOD_BANK_TRANSFER\020\002\022" +
-      "\030\n\024PAY_IN_METHOD_WALLET\020\003*\265\001\n\rInvoiceSta" +
-      "tus\022\036\n\032INVOICE_STATUS_UNSPECIFIED\020\000\022\030\n\024I" +
-      "NVOICE_STATUS_DRAFT\020\001\022\027\n\023INVOICE_STATUS_" +
-      "SENT\020\002\022\027\n\023INVOICE_STATUS_PAID\020\003\022\032\n\026INVOI" +
-      "CE_STATUS_OVERDUE\020\004\022\034\n\030INVOICE_STATUS_CA" +
-      "NCELLED\020\005*\333\003\n\014WebhookEvent\022\035\n\031WEBHOOK_EV" +
-      "ENT_UNSPECIFIED\020\000\022!\n\035WEBHOOK_EVENT_PAYME" +
-      "NT_PENDING\020\001\022#\n\037WEBHOOK_EVENT_PAYMENT_SU" +
-      "CCEEDED\020\002\022 \n\034WEBHOOK_EVENT_PAYMENT_FAILE" +
-      "D\020\003\022#\n\037WEBHOOK_EVENT_PAYMENT_CANCELLED\020\004" +
-      "\022\"\n\036WEBHOOK_EVENT_PAYMENT_REFUNDED\020\005\022,\n(" +
-      "WEBHOOK_EVENT_PAYMENT_PARTIALLY_REFUNDED" +
-      "\020\006\022!\n\035WEBHOOK_EVENT_PAYIN_SUCCEEDED\020\n\022\036\n" +
-      "\032WEBHOOK_EVENT_PAYIN_FAILED\020\013\022\"\n\036WEBHOOK" +
-      "_EVENT_PAYOUT_SUCCEEDED\020\014\022\037\n\033WEBHOOK_EVE" +
-      "NT_PAYOUT_FAILED\020\r\022\"\n\036WEBHOOK_EVENT_REFU" +
-      "ND_SUCCEEDED\020\016\022\037\n\033WEBHOOK_EVENT_REFUND_F" +
-      "AILED\020\017b\006proto3"
+      "\030\016 \001(\0132\032.google.protobuf.TimestampR\tupda" +
+      "tedAt\022\037\n\013success_url\030\017 \001(\tR\nsuccessUrl\022\035" +
+      "\n\ncancel_url\030\020 \001(\tR\tcancelUrl\"\275\001\n\013Invoic" +
+      "eItem\022\016\n\002id\030\001 \001(\tR\002id\022 \n\013description\030\002 \001" +
+      "(\tR\013description\022\032\n\010quantity\030\003 \001(\003R\010quant" +
+      "ity\022/\n\nunit_price\030\004 \001(\0132\020.common.v1.Mone" +
+      "yR\tunitPrice\022/\n\nline_total\030\005 \001(\0132\020.commo" +
+      "n.v1.MoneyR\tlineTotal\"l\n\020InvoiceRecipien" +
+      "t\022\022\n\004name\030\001 \001(\tR\004name\022\024\n\005email\030\002 \001(\tR\005em" +
+      "ail\022\024\n\005phone\030\003 \001(\tR\005phone\022\030\n\007address\030\004 \001" +
+      "(\tR\007address\"\312\006\n\007Invoice\022\016\n\002id\030\001 \001(\tR\002id\022" +
+      "%\n\016invoice_number\030\002 \001(\tR\rinvoiceNumber\022<" +
+      "\n\006status\030\003 \001(\0162$.programmatic.types.v1.I" +
+      "nvoiceStatusR\006status\022,\n\010subtotal\030\004 \001(\0132\020" +
+      ".common.v1.MoneyR\010subtotal\022-\n\ttax_total\030" +
+      "\005 \001(\0132\020.common.v1.MoneyR\010taxTotal\022&\n\005tot" +
+      "al\030\006 \001(\0132\020.common.v1.MoneyR\005total\0221\n\013amo" +
+      "unt_paid\030\007 \001(\0132\020.common.v1.MoneyR\namount" +
+      "Paid\022E\n\trecipient\030\010 \001(\0132\'.programmatic.t" +
+      "ypes.v1.InvoiceRecipientR\trecipient\0227\n\ti" +
+      "ssued_at\030\t \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\010issuedAt\0221\n\006due_at\030\n \001(\0132\032.google.pr" +
+      "otobuf.TimestampR\005dueAt\0228\n\007sent_at\030\013 \001(\013" +
+      "2\032.google.protobuf.TimestampH\000R\006sentAt\210\001" +
+      "\001\0228\n\007paid_at\030\014 \001(\0132\032.google.protobuf.Tim" +
+      "estampH\001R\006paidAt\210\001\001\022\024\n\005notes\030\r \001(\tR\005note" +
+      "s\022\024\n\005terms\030\016 \001(\tR\005terms\022\"\n\npayment_id\030\017 " +
+      "\001(\tH\002R\tpaymentId\210\001\001\0229\n\ncreated_at\030\020 \001(\0132" +
+      "\032.google.protobuf.TimestampR\tcreatedAt\0229" +
+      "\n\nupdated_at\030\021 \001(\0132\032.google.protobuf.Tim" +
+      "estampR\tupdatedAtB\n\n\010_sent_atB\n\n\010_paid_a" +
+      "tB\r\n\013_payment_id\"\255\002\n\023WebhookSubscription" +
+      "\022\016\n\002id\030\001 \001(\tR\002id\022\020\n\003url\030\002 \001(\tR\003url\022D\n\013ev" +
+      "ent_types\030\003 \003(\0162#.programmatic.types.v1." +
+      "WebhookEventR\neventTypes\022\026\n\006active\030\004 \001(\010" +
+      "R\006active\022 \n\013description\030\005 \001(\tR\013descripti" +
+      "on\0229\n\ncreated_at\030\006 \001(\0132\032.google.protobuf" +
+      ".TimestampR\tcreatedAt\0229\n\nupdated_at\030\007 \001(" +
+      "\0132\032.google.protobuf.TimestampR\tupdatedAt" +
+      "*\346\001\n\rPaymentStatus\022\036\n\032PAYMENT_STATUS_UNS" +
+      "PECIFIED\020\000\022\032\n\026PAYMENT_STATUS_PENDING\020\001\022\034" +
+      "\n\030PAYMENT_STATUS_SUCCEEDED\020\002\022\031\n\025PAYMENT_" +
+      "STATUS_FAILED\020\003\022\033\n\027PAYMENT_STATUS_REFUND" +
+      "ED\020\004\022%\n!PAYMENT_STATUS_PARTIALLY_REFUNDE" +
+      "D\020\005\022\034\n\030PAYMENT_STATUS_CANCELLED\020\006*\302\001\n\017Tr" +
+      "ansactionKind\022 \n\034TRANSACTION_KIND_UNSPEC" +
+      "IFIED\020\000\022\032\n\026TRANSACTION_KIND_PAYIN\020\001\022\033\n\027T" +
+      "RANSACTION_KIND_PAYOUT\020\002\022\035\n\031TRANSACTION_" +
+      "KIND_TRANSFER\020\003\022\033\n\027TRANSACTION_KIND_REFU" +
+      "ND\020\004\022\030\n\024TRANSACTION_KIND_FEE\020\005*\332\001\n\021Trans" +
+      "actionStatus\022\"\n\036TRANSACTION_STATUS_UNSPE" +
+      "CIFIED\020\000\022\036\n\032TRANSACTION_STATUS_CREATED\020\001" +
+      "\022\036\n\032TRANSACTION_STATUS_PENDING\020\002\022 \n\034TRAN" +
+      "SACTION_STATUS_SUCCEEDED\020\003\022\035\n\031TRANSACTIO" +
+      "N_STATUS_FAILED\020\004\022 \n\034TRANSACTION_STATUS_" +
+      "CANCELLED\020\005*\177\n\013PayInMethod\022\035\n\031PAY_IN_MET" +
+      "HOD_UNSPECIFIED\020\000\022\026\n\022PAY_IN_METHOD_CARD\020" +
+      "\001\022\037\n\033PAY_IN_METHOD_BANK_TRANSFER\020\002\022\030\n\024PA" +
+      "Y_IN_METHOD_WALLET\020\003*\265\001\n\rInvoiceStatus\022\036" +
+      "\n\032INVOICE_STATUS_UNSPECIFIED\020\000\022\030\n\024INVOIC" +
+      "E_STATUS_DRAFT\020\001\022\027\n\023INVOICE_STATUS_SENT\020" +
+      "\002\022\027\n\023INVOICE_STATUS_PAID\020\003\022\032\n\026INVOICE_ST" +
+      "ATUS_OVERDUE\020\004\022\034\n\030INVOICE_STATUS_CANCELL" +
+      "ED\020\005*\333\003\n\014WebhookEvent\022\035\n\031WEBHOOK_EVENT_U" +
+      "NSPECIFIED\020\000\022!\n\035WEBHOOK_EVENT_PAYMENT_PE" +
+      "NDING\020\001\022#\n\037WEBHOOK_EVENT_PAYMENT_SUCCEED" +
+      "ED\020\002\022 \n\034WEBHOOK_EVENT_PAYMENT_FAILED\020\003\022#" +
+      "\n\037WEBHOOK_EVENT_PAYMENT_CANCELLED\020\004\022\"\n\036W" +
+      "EBHOOK_EVENT_PAYMENT_REFUNDED\020\005\022,\n(WEBHO" +
+      "OK_EVENT_PAYMENT_PARTIALLY_REFUNDED\020\006\022!\n" +
+      "\035WEBHOOK_EVENT_PAYIN_SUCCEEDED\020\n\022\036\n\032WEBH" +
+      "OOK_EVENT_PAYIN_FAILED\020\013\022\"\n\036WEBHOOK_EVEN" +
+      "T_PAYOUT_SUCCEEDED\020\014\022\037\n\033WEBHOOK_EVENT_PA" +
+      "YOUT_FAILED\020\r\022\"\n\036WEBHOOK_EVENT_REFUND_SU" +
+      "CCEEDED\020\016\022\037\n\033WEBHOOK_EVENT_REFUND_FAILED" +
+      "\020\017b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21083,7 +21286,7 @@ java.lang.String defaultValue) {
     internal_static_programmatic_types_v1_Payment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_programmatic_types_v1_Payment_descriptor,
-        new java.lang.String[] { "Id", "Status", "Amount", "Title", "Description", "FundedAmount", "Metadata", "CreatedAt", "UpdatedAt", "SuccessUrl", "CancelUrl", });
+        new java.lang.String[] { "Id", "Status", "Amount", "Title", "Description", "FundedAmount", "Metadata", "CreatedAt", "UpdatedAt", "SuccessUrl", "CancelUrl", "CheckoutUrl", });
     internal_static_programmatic_types_v1_Payment_MetadataEntry_descriptor =
       internal_static_programmatic_types_v1_Payment_descriptor.getNestedType(0);
     internal_static_programmatic_types_v1_Payment_MetadataEntry_fieldAccessorTable = new
