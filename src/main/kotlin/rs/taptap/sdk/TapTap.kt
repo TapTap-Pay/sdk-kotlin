@@ -16,28 +16,26 @@ import programmatic.transfers.v1.TransfersServiceClient
 import programmatic.wallets.v1.WalletsServiceClient
 import programmatic.webhooks.v1.WebhooksServiceClient
 
-/** Production TapTap-Pay API endpoint. */
-public const val DEFAULT_BASE_URL: String = "https://api.taptap.rs"
+// Environment URLs. CI rewrites these from secrets at release time.
+public const val PROD_BASE_URL: String = "https://api.taptap.rs"
+public const val SANDBOX_BASE_URL: String = "https://api.usetaptap.dev"
 
 /**
  * Configures a [TapTap] client. `apiKey` is required; everything
  * else has sensible defaults.
  *
- * @property apiKey Secret API key (`sk_test_…` or `sk_live_…`).
- * @property baseUrl Override the API base URL.
- * @property maxRetries Cap automatic retries on transient errors
- *   (Unavailable, DeadlineExceeded, ResourceExhausted, network
- *   failures).
+ * @property apiKey Secret API key.
+ * @property mode "production" (default) or "sandbox". Ignored when baseUrl is set.
+ * @property baseUrl Explicit override — ignores mode when set.
+ * @property maxRetries Cap automatic retries on transient errors.
  * @property retryBaseDelayMs Initial backoff between retries (ms).
  * @property userAgent Appended to the SDK's own User-Agent header.
- *   Use this to identify your integration in support requests.
- * @property httpClient Custom OkHttpClient. Pass your own to share
- *   connection pools or plug in observability. The SDK adds auth +
- *   user-agent interceptors on top.
+ * @property httpClient Custom OkHttpClient.
  */
 public data class TapTapOptions(
     val apiKey: String,
-    val baseUrl: String = DEFAULT_BASE_URL,
+    val mode: String = "production",
+    val baseUrl: String = if (mode == "sandbox") SANDBOX_BASE_URL else PROD_BASE_URL,
     val maxRetries: Int = 3,
     val retryBaseDelayMs: Long = 500,
     val userAgent: String? = null,
