@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
 
-The official Kotlin (JVM) SDK for the [TapTap-Pay](https://taptap.rs) API.
+The official Kotlin (JVM) SDK for the [TapTap-Pay](https://usetaptap.com) API.
 
 Wraps [Connect-Kotlin](https://github.com/connectrpc/connect-kotlin)
 clients generated from the upstream `programmatic/*` proto surface
@@ -72,7 +72,7 @@ suspend fun main() {
 
 ## Authentication
 
-API keys are minted in the [dashboard](https://app.taptap.rs). Sandbox
+API keys are minted in the [dashboard](https://app.usetaptap.com). Sandbox
 keys are prefixed `sk_test_`, live keys `sk_live_`. The SDK sends them
 as `Authorization: Bearer <key>` on every request via an OkHttp
 interceptor.
@@ -83,7 +83,7 @@ interceptor.
 val client = TapTap(
     TapTapOptions(
         apiKey = "sk_live_...",
-        baseUrl = "https://api.taptap.rs", // optional
+        baseUrl = "https://api.usetaptap.com", // optional
         maxRetries = 3,                    // default 3
         retryBaseDelayMs = 500,            // default 500
         userAgent = "my-app/1.4.0",        // optional, appended to SDK UA
