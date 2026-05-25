@@ -17,8 +17,8 @@ import programmatic.wallets.v1.WalletsServiceClient
 import programmatic.webhooks.v1.WebhooksServiceClient
 
 // Environment URLs. CI rewrites these from secrets at release time.
-public const val PROD_BASE_URL: String = "https://api.usetaptap.com"
-public const val SANDBOX_BASE_URL: String = "https://api.usetaptap.dev"
+public const val PROD_BASE_URL: String = "https://api.usetaptap.com/"
+public const val SANDBOX_BASE_URL: String = "https://api.usetaptap.dev/"
 
 /**
  * Configures a [TapTap] client. `apiKey` is required; everything
