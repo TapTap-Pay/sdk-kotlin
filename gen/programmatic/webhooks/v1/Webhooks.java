@@ -1116,7 +1116,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
     /**
      * <pre>
      * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-     * your side and validate the `X-TapTap-Signature` header on every
+     * your side and validate the `X-Webhook-Signature-V2` header on every
      * delivery.
      * </pre>
      *
@@ -1127,7 +1127,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
     /**
      * <pre>
      * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-     * your side and validate the `X-TapTap-Signature` header on every
+     * your side and validate the `X-Webhook-Signature-V2` header on every
      * delivery.
      * </pre>
      *
@@ -1213,7 +1213,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
     /**
      * <pre>
      * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-     * your side and validate the `X-TapTap-Signature` header on every
+     * your side and validate the `X-Webhook-Signature-V2` header on every
      * delivery.
      * </pre>
      *
@@ -1236,7 +1236,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
     /**
      * <pre>
      * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-     * your side and validate the `X-TapTap-Signature` header on every
+     * your side and validate the `X-Webhook-Signature-V2` header on every
      * delivery.
      * </pre>
      *
@@ -1726,7 +1726,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
       /**
        * <pre>
        * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-       * your side and validate the `X-TapTap-Signature` header on every
+       * your side and validate the `X-Webhook-Signature-V2` header on every
        * delivery.
        * </pre>
        *
@@ -1748,7 +1748,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
       /**
        * <pre>
        * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-       * your side and validate the `X-TapTap-Signature` header on every
+       * your side and validate the `X-Webhook-Signature-V2` header on every
        * delivery.
        * </pre>
        *
@@ -1771,7 +1771,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
       /**
        * <pre>
        * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-       * your side and validate the `X-TapTap-Signature` header on every
+       * your side and validate the `X-Webhook-Signature-V2` header on every
        * delivery.
        * </pre>
        *
@@ -1790,7 +1790,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
       /**
        * <pre>
        * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-       * your side and validate the `X-TapTap-Signature` header on every
+       * your side and validate the `X-Webhook-Signature-V2` header on every
        * delivery.
        * </pre>
        *
@@ -1806,7 +1806,7 @@ public final class Webhooks extends com.google.protobuf.GeneratedFile {
       /**
        * <pre>
        * HMAC-SHA256 signing secret. Returned **exactly once** — store it on
-       * your side and validate the `X-TapTap-Signature` header on every
+       * your side and validate the `X-Webhook-Signature-V2` header on every
        * delivery.
        * </pre>
        *
