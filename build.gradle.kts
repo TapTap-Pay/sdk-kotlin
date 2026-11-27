@@ -4,8 +4,8 @@
 //   src/main/kotlin/rs/taptap/sdk/   — hand-written ergonomics
 //   gen/                              — generated Java protos + Kotlin
 //                                       Connect stubs (overwritten by
-//                                       the upstream api repo's
-//                                       release-sdks workflow)
+//                                       the monorepo's sdks
+//                                       workflow)
 //
 // The `version` here is a placeholder; the release workflow rewrites
 // it via sed before publishing.
@@ -42,10 +42,10 @@ sourceSets {
 
 val connectKotlinVersion = "0.7.2"
 // Generated Java protos pin themselves to the version that produced
-// them (4.35.x). RuntimeVersion.validateProtobufGencodeVersion at
+// them (4.36.x). RuntimeVersion.validateProtobufGencodeVersion at
 // startup hard-fails if the runtime is older, so this stays in
 // lockstep with the buf.build/protocolbuffers/java plugin version.
-val protobufJavaVersion = "4.35.0"
+val protobufJavaVersion = "4.36.2"
 val coroutinesVersion = "1.9.0"
 val protovalidateVersion = "0.7.0"
 
